@@ -4,10 +4,10 @@ TBC
 
 ## Authors
 
-Kevin Dick - Carleton University - <KevinDick@cmail.carleton.ca>
-Francois Charih - Carleton University - <francoischarih@sce.carleton.ca>
-Jimmy Woo - Carleton University - N/A
-James R. Green - Carleton University - <jrgreen@sce.carleton.ca>
+* Kevin Dick - Carleton University - <KevinDick@cmail.carleton.ca>
+* Francois Charih - Carleton University - <francoischarih@sce.carleton.ca>
+* Jimmy Woo - Carleton University - N/A
+* James R. Green - Carleton University - <jrgreen@sce.carleton.ca>
 
 ## How to use the data collection app
 
