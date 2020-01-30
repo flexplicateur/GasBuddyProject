@@ -2,7 +2,7 @@
 
 /**
  * This module executes inside of electron's main process. You can start
-* s
+ * s
  * electron renderer process from here and communicate with the other processes
  * through IPC.
  *
@@ -16,7 +16,9 @@ import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
 const ipc = require('electron').ipcMain;
-const fs = require("fs");
+const fs = require('fs');
+const request = require('request');
+const download = require('image-downloader');
 const contextMenu = require('electron-context-menu');
 
 export default class AppUpdater {
@@ -28,12 +30,12 @@ export default class AppUpdater {
 }
 
 contextMenu({
-showCopyImageAddress: true,
-	prepend: (defaultActions, params, browserWindow) => [
-	]
+  showCopyImageAddress: true,
+  prepend: (defaultActions, params, browserWindow) => []
 });
 
 let dataFile = null;
+let directory = null;
 let mainWindow = null;
 
 if (process.env.NODE_ENV === 'production') {
@@ -71,23 +73,24 @@ const createWindow = async () => {
     width: 1024,
     height: 728,
     webPreferences: {
-nodeIntegration: true,
-webviewTag: true
+      nodeIntegration: true,
+      webviewTag: true
     }
-});
+  });
 
-	mainWindow.webContents.session.webRequest.onHeadersReceived(
-		{urls: ['*://*/*']},
-		(details, callback) => {
-			Object.keys(details.responseHeaders).filter(x => x.toLowerCase() === 'x-frame-options')
-						.map(x => delete details.responseHeaders[x])
+  mainWindow.webContents.session.webRequest.onHeadersReceived(
+    { urls: ['*://*/*'] },
+    (details, callback) => {
+      Object.keys(details.responseHeaders)
+        .filter(x => x.toLowerCase() === 'x-frame-options')
+        .map(x => delete details.responseHeaders[x]);
 
-			callback({
-				cancel: false,
-				responseHeaders: details.responseHeaders,
-			})
-		},
-	)
+      callback({
+        cancel: false,
+        responseHeaders: details.responseHeaders
+      });
+    }
+  );
 
   mainWindow.loadURL(`file://${__dirname}/app.html`);
 
@@ -137,17 +140,39 @@ app.on('activate', () => {
   if (mainWindow === null) createWindow();
 });
 
-ipc.handle("select-file", async (event, filepath) => {
+ipc.handle('select-file', async (event, filepath) => {
   dataFile = filepath;
-})
+});
 
-ipc.handle("get-data", async (event) => {
-	let data = JSON.parse(fs.readFileSync(dataFile));
-	return data;
-})
+ipc.handle('select-directory', async (event, filepath) => {
+  directory = filepath;
+});
 
-ipc.handle("save-data", async (event, data) => {
-	fs.writeFileSync(dataFile, JSON.stringify(data));
-	let newData = JSON.parse(fs.readFileSync(dataFile));
-	return newData;
-})
+ipc.handle('get-data', async event => {
+  let data = JSON.parse(fs.readFileSync(dataFile));
+  return data;
+});
+
+ipc.handle(
+  'save-data',
+  async (event, data, imageAvailable, index, stationIndex) => {
+    fs.writeFileSync(dataFile, JSON.stringify(data));
+    let newData = JSON.parse(fs.readFileSync(dataFile));
+    if (imageAvailable) {
+      try {
+        const batchFileName = dataFile
+          .split(/(\\|\/)/g)
+          .pop()
+          .replace(/\.[^/.]+$/, '');
+        const imageFilename = `${directory}/${batchFileName}_${index}_${stationIndex}.jpg`;
+        await download.image({
+          url: data[index].nearbyStations.results[stationIndex].imageLink,
+          dest: imageFilename
+        });
+      } catch (e) {
+        console.log(e);
+      }
+    }
+    return newData;
+  }
+);

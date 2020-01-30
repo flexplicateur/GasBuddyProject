@@ -8,6 +8,10 @@ const { dialog } = require('electron').remote;
 const { clipboard } = require('electron');
 const ipc = require('electron').ipcRenderer;
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 type Props = {};
 
 export default class Home extends Component<Props> {
@@ -15,6 +19,7 @@ export default class Home extends Component<Props> {
 
   state = {
     file: '',
+    directory: '',
     data: [],
     index: 0,
     stationIndex: 0
@@ -141,13 +146,32 @@ export default class Home extends Component<Props> {
       "document.querySelector('#img-link').value"
     );
     const isvLink = contents.getURL();
+
+    const max_iters = 5;
+    let imageLink = null;
+    for (let i = 0; i < max_iters; i++) {
+      imageLink = await navigator.executeJavaScript(
+        "document.querySelector('#share-img').src"
+      );
+      if (imageLink && !imageLink.includes('.svg')) break;
+      await sleep(2000);
+    }
     this.state.data[this.state.index].nearbyStations.results[
       this.state.stationIndex
     ].isvLink = isvLink;
     this.state.data[this.state.index].nearbyStations.results[
       this.state.stationIndex
     ].gmapsLink = gmapsLink;
-    let newData = await ipc.invoke('save-data', this.state.data);
+    this.state.data[this.state.index].nearbyStations.results[
+      this.state.stationIndex
+    ].imageLink = imageLink;
+    let newData = await ipc.invoke(
+      'save-data',
+      this.state.data,
+      true,
+      this.state.index,
+      this.state.stationIndex
+    );
     this.setState({ data: [...newData] });
     this.seekNextStation();
   }
@@ -160,7 +184,7 @@ export default class Home extends Component<Props> {
     data[this.state.index].nearbyStations.results[
       this.state.stationIndex
     ].gmapsLink = 'NA';
-    let newData = await ipc.invoke('save-data', data);
+    let newData = await ipc.invoke('save-data', data, false);
     this.setState({ data: [...newData] });
     this.seekNextStation();
   }
@@ -172,6 +196,14 @@ export default class Home extends Component<Props> {
     const data = await ipc.invoke('get-data', null);
     this.setState({ data });
     this.seekFirstNewSeed();
+  }
+
+  async setDirectory() {
+    const filepath = dialog.showOpenDialogSync({
+      properties: ['openDirectory']
+    });
+    await ipc.invoke('select-directory', filepath[0]);
+    this.setState({ directory: filepath });
   }
 
   getInstantViewUrl() {
@@ -191,9 +223,12 @@ export default class Home extends Component<Props> {
       .gmapsLink;
   }
 
+  isReadyToCollect() {
+    return this.state.file !== '' && this.state.directory !== '';
+  }
+
   render() {
-    console.log(this.state.data);
-    if (!this.state.file) {
+    if (!this.isReadyToCollect()) {
       return (
         <div data-tid="container">
           <h1>GasBuddy Image Collection Tool</h1>
@@ -201,6 +236,12 @@ export default class Home extends Component<Props> {
             Please select the JSON file where the links are to be stored.
           </div>
           <button onClick={this.setFile.bind(this)}>Select file</button>
+          <div>
+            Please select the directory where the images are to be stored.
+          </div>
+          <button onClick={this.setDirectory.bind(this)}>
+            Select directory
+          </button>
         </div>
       );
     }
@@ -209,10 +250,12 @@ export default class Home extends Component<Props> {
       <div data-tid="container">
         <h1>GasBuddy Image Collection Tool</h1>
         <div className="big">Data stored in: {this.state.file}</div>
+        <div className="big">Images stored in: {this.state.directory}</div>
         {this.dataIsAvailable() && (
           <div class="big">
             Link {this.dataIsAvailable() && this.getAnnotatedImages()} out of{' '}
             {this.dataIsAvailable() && this.getTotalImageNum()}
+            {this.dataIsAvailable() && <div>Seed {this.state.index}</div>}
             <Line
               percent={this.getPercentDone()}
               strokeWidth="2"

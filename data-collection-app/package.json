@@ -269,6 +269,7 @@
     "electron-log": "^4.0.0",
     "electron-updater": "^4.2.0",
     "history": "^4.10.1",
+    "image-downloader": "^3.5.0",
     "node-loader": "^0.6.0",
     "rc-progress": "^2.5.2",
     "react": "^16.12.0",
