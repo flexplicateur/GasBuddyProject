@@ -1,0 +1,46 @@
+[
+  {
+    "assignment_id": "3X31TUMD7XLVMPCY2Z32YQPO2VH1LU",
+    "hit_id": "3K8CQCU3KD0CO6XTLY31GOOKK1QWNS",
+    "worker_id": "AW02W1A865GT4",
+    "accept_time": 1579706066,
+    "submit_time": 1579706744,
+    "answers": {
+      "videoWasWatched": false,
+      "answer": {
+        "link1": "https://maps.googleapis.com/maps/api/streetview?size=640x640&amp;pano=0gWSgQbx8YGvkGRWcYL85g&amp;heading=214.8828698190206&amp;fov=20&amp;pitch=2.009140803384568&amp;key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM",
+        "link2": "https://maps.googleapis.com/maps/api/streetview?size=640x640&amp;pano=LVlcGA7Ve_Ee0S2J-2-3CQ&amp;heading=355.16013369252033&amp;fov=20&amp;pitch=-2.9412264871529317&amp;key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM",
+        "link3": "https://maps.googleapis.com/maps/api/streetview?size=640x640&amp;pano=WGmQrPohHkWn2ANHVJL-Uw&amp;heading=134.21307296493904&amp;fov=20&amp;pitch=-3.667119804961544&amp;key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM",
+        "link4": "https://maps.googleapis.com/maps/api/streetview?size=640x640&amp;pano=gfHwVJcf9J0-V5IazwVflg&amp;heading=125.33054126158851&amp;fov=20&amp;pitch=1.6664909648552708&amp;key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM",
+        "link5": "https://maps.googleapis.com/maps/api/streetview?size=640x640&amp;pano=qjN9PUcG3HO-sllWZ_HXGw&amp;heading=154.5239167672981&amp;fov=20&amp;pitch=6.009284855780322&amp;key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM",
+        "link6": "https://maps.googleapis.com/maps/api/streetview?size=640x640&amp;pano=JlIk2c8oKRTTRWuS8oyDtA&amp;heading=214.9160503180225&amp;fov=20&amp;pitch=0.4910756294994343&amp;key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM",
+        "link7": "https://maps.googleapis.com/maps/api/streetview?size=640x640&amp;pano=eJjdAjPbF4aDZbQL3r7g9Q&amp;heading=266.16144826998755&amp;fov=20&amp;pitch=4.392398073879306&amp;key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM",
+        "link8": "https://maps.googleapis.com/maps/api/streetview?size=640x640&amp;pano=WLLHi_DmAlOhUJL1KiHJaA&amp;heading=148.5484252082668&amp;fov=20&amp;pitch=-5.5982095471444495&amp;key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM",
+        "link9": "https://maps.googleapis.com/maps/api/streetview?size=640x640&amp;pano=xW7GDNXQGg7BYrJtQeao9Q&amp;heading=60.267913834512406&amp;fov=47.22981626317189&amp;pitch=2.070248844014529&amp;key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM",
+        "link10": "https://maps.googleapis.com/maps/api/streetview?size=640x640&amp;pano=Jb0EKsUOIsyK94KNBT16ZA&amp;heading=333.9290619802812&amp;fov=20&amp;pitch=2.9842812388551465&amp;key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM"
+      }
+    }
+  },
+  {
+    "assignment_id": "3X31TUMD7XLVMPCY2Z32YQPO2VH1LU",
+    "hit_id": "3K8CQCU3KD0CO6XTLY31GOOKK1QWNS",
+    "worker_id": "AW02W1A865GT4",
+    "accept_time": 1579706066,
+    "submit_time": 1579706744,
+    "answers": {
+      "videoWasWatched": false,
+      "answer": {
+        "link1": "https://maps.googleapis.com/maps/api/streetview?size=640x640&amp;pano=wwvi5OP_Zo2rsmL-MtCRRQ&amp;heading=341.48311825912555&amp;fov=22.287993415089716&amp;pitch=-1.1822815752310731&amp;key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM",
+        "link2": "https://maps.googleapis.com/maps/api/streetview?size=640x640&amp;pano=_bOC6b5IYwtYj8GWmkvZkg&amp;heading=145.6614960162238&amp;fov=22.380924589857287&amp;pitch=-0.7436428934505273&amp;key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM",
+        "link3": "https://maps.googleapis.com/maps/api/streetview?size=640x640&amp;pano=fNqJ_Nl_B7CiJiHBEBBvdQ&amp;heading=149.8018399223639&amp;fov=22.380924589857287&amp;pitch=-3.7557672928758308&amp;key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM",
+        "link4": "https://maps.googleapis.com/maps/api/streetview?size=640x640&amp;pano=Op_xTpnLkGodPfSycx0Z9Q&amp;heading=258.3090660164343&amp;fov=22.380924589857287&amp;pitch=-0.6000311148428779&amp;key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM",
+        "link5": "https://maps.googleapis.com/maps/api/streetview?size=640x640&amp;pano=siV4kye6sz5OQ-PJMaI4RQ&amp;heading=21.10723873160126&amp;fov=31.41306967438127&amp;pitch=2.79850323286513&amp;key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM",
+        "link6": "https://maps.googleapis.com/maps/api/streetview?size=640x640&amp;pano=35-4Jzw4j1C7CRAbT3JVAQ&amp;heading=239.19601188250158&amp;fov=22.380924589857287&amp;pitch=-1.1524435705826335&amp;key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM",
+        "link7": "https://maps.googleapis.com/maps/api/streetview?size=640x640&amp;pano=eJjdAjPbF4aDZbQL3r7g9Q&amp;heading=267.94765450069684&amp;fov=22.380924589857287&amp;pitch=3.5263942131091284&amp;key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM",
+        "link8": "https://maps.googleapis.com/maps/api/streetview?size=640x640&amp;pano=mpC5FuRQIzNq8RIROxh5DQ&amp;heading=233.38294599798087&amp;fov=22.380924589857287&amp;pitch=-2.9229097710937424&amp;key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM",
+        "link9": "https://maps.googleapis.com/maps/api/streetview?size=640x640&amp;pano=TFpf9Zzl67-sZ3WJfGOcyg&amp;heading=303.6381355823382&amp;fov=22.380924589857287&amp;pitch=0.5333857809719831&amp;key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM",
+        "link10": "https://maps.googleapis.com/maps/api/streetview?size=640x640&amp;pano=RtN3vtRAvgSAX94Pg_0qgA&amp;heading=244.55465048131433&amp;fov=29.746672440196843&amp;pitch=1.210293447097527&amp;key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM"
+      }
+    }
+  }
+]

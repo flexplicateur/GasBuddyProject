@@ -1,0 +1,22 @@
+{
+    "answers": {
+        "videoWasWatched": false,
+        "answer": {
+            "link1": "https://www.instantstreetview.com/@42.298611,-85.199815,147.43h,0.88p,2.89z",
+            "link2": "https://www.instantstreetview.com/@42.746576,-90.341704,166.91h,4.85p,2.42z",
+            "link3": "https://www.instantstreetview.com/@45.027765,-69.288053,247.48h,0.52p,2.88z",
+            "link4": "https://www.instantstreetview.com/@28.547518,-81.420111,271.95h,13.93p,2.36z",
+            "link5": "https://www.instantstreetview.com/@39.917141,-75.234844,190.43h,1.23p,2.09z",
+            "link6": "https://www.instantstreetview.com/@43.026023,-88.000124,178.72h,-6.77p,1.7z",
+            "link7": "https://www.instantstreetview.com/@39.098484,-76.899328,72.08h,-9.05p,1z",
+            "link8": "https://www.instantstreetview.com/@41.815613,-89.649705,56.24h,-0.95p,2.89z",
+            "link9": "https://www.instantstreetview.com/@37.759941,-89.077203,137.87h,4.55p,1.93z",
+            "link10": "https://www.instantstreetview.com/@40.71688,-74.05504,20.77h,-3.38p,2.89z"
+        }
+    },
+    "assignment_id": "3Z9WI9EOZZNV6UFUJOUMBDSGP35KH3",
+    "hit_id": "391FPZIE4BL7M6MDN0TNTG6RA58UH9",
+    "worker_id": "A29J5UFG3E9FXR",
+    "accept_time": 1576118774.0,
+    "submit_time": 1576120713.0
+}

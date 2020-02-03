@@ -1,0 +1,77 @@
+<HTMLQuestion xmlns="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2011-11-11/HTMLQuestion.xsd">
+  <HTMLContent><![CDATA[
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script type='text/javascript' src='https://s3.amazonaws.com/mturk-public/externalHIT_v1.js'></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ </head>
+ <body>
+  <form name='mturk_form' method='post' id='mturk_form' action='https://www.workersandbox.mturk.com/mturk/externalSubmit'>
+  <input type='hidden' value='' name='assignmentId' id='assignmentId'/>
+	<input type='hidden' value='{}' name='answer' id='answer'/>
+  <h1 style="text-align: center;">Help us find gas price in Street View Imagery!</h1>
+<div class="card bg-light mb-3" style="max-width: 50%; margin: 0 auto;">
+  <div class="card-header"></div>
+  <div class="card-body" style="text-align:center;">
+    <h5 class="card-title">Instructions</h5>
+    <p class="card-text">
+			Please watch the <a href="https://youtu.be/d-8n09odPXw" target="_blank">instruction video</a> and make sure that you understand the instructions.
+    </p>
+	 <p class="card-text">
+		 <b>The reward for watching the entire video 1USD.</b>
+    </p>
+  </div>
+</div>
+<div style="text-align:center;">
+	<iframe width="672" height="378" src="https://www.youtube-nocookie.com/embed/d-8n09odPXw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<div style="text-align: center">
+  <p><input style="visibility:hidden;" type='submit' id='mturk-submit' value='Submit' /></p></form>
+	<p id="errormessage" style="color:red"></p>
+	<button id="submitbutton" class="btn btn-success" type="button">Submit!</button>
+</div>
+  <script language='Javascript'>turkSetAssignmentID();</script>
+	 <script>
+		 var startTime = Date.now();
+
+		 function showErrorMessage(message) {
+				$("#errormessage").html(message);
+		 }
+
+		 function hideErrorMessage() {
+				$("#errormessage").html("");
+		 }
+
+		 var MIN_TIME = 140; // The worker MUST wait at least wait 140s to submit
+
+		 function attemptSubmission() {
+			 var timeElapsed = (Date.now() - startTime) / 1000; // in seconds
+
+			 // Make sure they spent enough time on the task
+			 if(timeElapsed <= MIN_TIME) {
+				 showErrorMessage("Please make sure you have watched the entire video. You have only spent " + timeElapsed.toFixed(0) + " seconds on the HIT...");
+				 return;
+			 } else {
+			  // Attach total time spent
+			 var payload = { timeElapsed: timeElapsed };
+			 $("#answer").val("$$$" + JSON.stringify(payload) + "$$$");
+
+			 // Submit
+			 $("#mturk-submit").click();
+			 }
+		 }
+
+		 $("#submitbutton").click(function() { 
+			 attemptSubmission();
+		 })
+	 </script>
+ </body>
+</html>
+]]>
+  </HTMLContent>
+  <FrameHeight>0</FrameHeight>
+</HTMLQuestion>

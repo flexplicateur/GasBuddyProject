@@ -1,0 +1,63 @@
+<HTMLQuestion xmlns="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2011-11-11/HTMLQuestion.xsd">
+  <HTMLContent><![CDATA[
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script type='text/javascript' src='https://s3.amazonaws.com/mturk-public/externalHIT_v1.js'></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ </head>
+ <body>
+  <form name='mturk_form' method='post' id='mturk_form' action='https://www.workersandbox.mturk.com/mturk/externalSubmit'>
+  <input type='hidden' value='' name='assignmentId' id='assignmentId'/>
+	<input type='hidden' value='{}' name='answers' id='answers'/>
+  <h1 style="text-align: center;">Help us annotate gas prices</h1>
+<div class="card bg-light mb-3" style="max-width: 80%; margin: 0 auto;">
+  <div class="card-header"></div>
+  <div class="card-body">
+    <h5 class="card-title">Instructions</h5>
+    <p class="card-text">
+    To earn your reward, you are to give us the price of regular gas for each photo.
+		In the input boxes, put the prices in numerical form. The prices should be in the
+		form "x.xx" where "x" is a number or a dash (if the number is not available or unclear).
+		</p>
+			<h6>Special cases</h6>
+		<p>
+			<div>
+			<b>Case 1: Price for regular gas is not available</b><br/>
+			Enter in "-.--".
+			</div>
+			<div>
+			<b>Case 2: Some of the figures are ambiguous/unclear</b><br/>
+			Replace these ambiguous figures with dashes, for e.g. "3.-5".
+			</div>
+			<div>
+			<b>Case 3: There are fractions in the price (e.g. 8/10)</b><br/>
+			Ignore fractions.
+			</div>
+		</p>
+    </p>
+  </div>
+</div>
+<div style="text-align: center">
+  ===LINKS===
+  <p><input style="display:none;" type='submit' id='submitButton' value='Submit' /></p></form>
+	<p id="errormessage" style="color:red"></p>
+	<button id="submitbutton" class="btn btn-success" type="button">Submit!</button>
+</div>
+  <script language='Javascript'>turkSetAssignmentID();</script>
+	 <script>
+		 var numLinks = ===NUMLINKS===;
+
+		 var videoWasWatched = false;
+
+		 function setVideoWatched() {
+			 videoWasWatched = true;
+		 }
+
+		 function verifyLinkValidity() {
+			 var regex = /https:\/\/maps.googleapis.com\/maps\/api\/streetview\?size=640x640\&pano=.*\&heading=[-+]?[0-9]*\.?[0-9]+\&fov=[-+]?[0-9]*\.?[0-9]+&pitch=[-+]?[0-9]*\.?[0-9]+&key=.*/;
+			 for(var i = 0; i < numLinks; i++) {
+				 if(!$("#link" + (i+1)).val().match(regex)) {
+					 return i + 1;

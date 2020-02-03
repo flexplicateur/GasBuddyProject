@@ -1,0 +1,10 @@
+https://www.instantstreetview.com/@40.973181,-73.7748,0.0h,0.0p,1.0z
+https://www.instantstreetview.com/@45.1411653,-70.4406231,0.0h,0.0p,1.0z
+https://www.instantstreetview.com/@39.795977,-85.527698,0.0h,0.0p,1.0z
+https://www.instantstreetview.com/@41.104972545925605,-73.5675387871642,0.0h,0.0p,1.0z
+https://www.instantstreetview.com/@42.9883657559591,-87.92050081498721,0.0h,0.0p,1.0z
+https://www.instantstreetview.com/@40.0449893,-105.25854,0.0h,0.0p,1.0z
+https://www.instantstreetview.com/@42.104533836364396,-91.2937487679385,0.0h,0.0p,1.0z
+https://www.instantstreetview.com/@39.119510999999996,-76.8519750099543,0.0h,0.0p,1.0z
+https://www.instantstreetview.com/@34.27835524262,-119.291356818479,0.0h,0.0p,1.0z
+https://www.instantstreetview.com/@35.046173025974,-89.6949088961039,0.0h,0.0p,1.0z

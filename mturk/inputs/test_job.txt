@@ -1,0 +1,4 @@
+https://www.instantstreetview.com/@45.413373,-75.808451,197.4h,2.41p,1z
+https://www.instantstreetview.com/@45.403547,-75.701217,26.08h,0.33p,1z
+https://www.instantstreetview.com/@45.407589,-75.703529,307.1h,2.25p,1z
+https://www.instantstreetview.com/@45.41134,-75.705793,218.53h,-0.63p,1z
