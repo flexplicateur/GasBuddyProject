@@ -17,9 +17,10 @@ import log from 'electron-log';
 import MenuBuilder from './menu';
 const ipc = require('electron').ipcMain;
 const fs = require('fs');
-const request = require('request');
-const download = require('image-downloader');
+const axios = require('axios');
 const contextMenu = require('electron-context-menu');
+
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 export default class AppUpdater {
   constructor() {
@@ -165,10 +166,14 @@ ipc.handle(
           .pop()
           .replace(/\.[^/.]+$/, '');
         const imageFilename = `${directory}/${batchFileName}_${index}_${stationIndex}.jpg`;
-        await download.image({
-          url: data[index].nearbyStations.results[stationIndex].imageLink,
-          dest: imageFilename
-        });
+        const response = await axios.get(
+          data[index].nearbyStations.results[stationIndex].imageLink,
+          {
+            responseType: 'arraybuffer'
+          }
+        );
+        const buffer = Buffer.from(response.data, 'binary');
+        fs.writeFileSync(imageFilename, buffer);
       } catch (e) {
         console.log(e);
       }

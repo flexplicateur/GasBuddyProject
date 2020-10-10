@@ -139,10 +139,10 @@ export default class Home extends Component<Props> {
   async saveLink() {
     const navigator = document.querySelector('webview');
     const contents = await navigator.getWebContents();
-    await navigator.executeJavaScript(
+    await contents.executeJavaScript(
       "document.querySelector('#share-button').click()"
     );
-    const gmapsLink = await navigator.executeJavaScript(
+    const gmapsLink = await contents.executeJavaScript(
       "document.querySelector('#img-link').value"
     );
     const isvLink = contents.getURL();
@@ -150,7 +150,7 @@ export default class Home extends Component<Props> {
     const max_iters = 5;
     let imageLink = null;
     for (let i = 0; i < max_iters; i++) {
-      imageLink = await navigator.executeJavaScript(
+      imageLink = await contents.executeJavaScript(
         "document.querySelector('#share-img').src"
       );
       if (imageLink && !imageLink.includes('.svg')) break;
@@ -231,7 +231,7 @@ export default class Home extends Component<Props> {
     if (!this.isReadyToCollect()) {
       return (
         <div data-tid="container">
-          <h1>GasBuddy Image Collection Tool</h1>
+          <h1>GSVImageryCollector</h1>
           <div>
             Please select the JSON file where the links are to be stored.
           </div>
@@ -248,7 +248,7 @@ export default class Home extends Component<Props> {
 
     return (
       <div data-tid="container">
-        <h1>GasBuddy Image Collection Tool</h1>
+        <h1>GSVImageryCollector</h1>
         <div className="big">Data stored in: {this.state.file}</div>
         <div className="big">Images stored in: {this.state.directory}</div>
         {this.dataIsAvailable() && (
